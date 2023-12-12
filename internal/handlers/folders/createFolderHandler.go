@@ -31,7 +31,7 @@ func CreateFolderHandler(c *gin.Context) {
 		return
 	}
 
-	newFolderPath := filepath.Join(helpers.BasePath, body.Folder)
+	newFolderPath := filepath.Join(helpers.BasePath, body.Bucket, body.Folder)
 
 	err := os.MkdirAll(newFolderPath, os.ModePerm)
 	if err != nil {
