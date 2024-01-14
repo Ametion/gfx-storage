@@ -18,6 +18,7 @@ func main() {
 	engine.GET("/folder", folders.GetFolderHandler)
 	engine.GET("/folderInfo", folders.GetFolderInfoHandler)
 	engine.POST("/folder", folders.CreateFolderHandler)
+	engine.DELETE("/folder", folders.DeleteFolderHandler)
 
 	engine.GET("/bucket/:bucket", buckets.GetBucketHandler)
 	engine.GET("/buckets", buckets.GetBucketsHandler)
