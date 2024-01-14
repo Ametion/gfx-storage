@@ -23,9 +23,9 @@ func UploadFileHandler(c *gin.Context) {
 	bucket := c.DefaultPostForm("bucket", "")
 	path = filepath.Clean(path)
 
-	filename := filepath.Clean(file.Filename)
+	fileName := filepath.Clean(file.Filename)
 
-	targetPath := filepath.Join(helpers.BasePath, bucket, path, filepath.Base(filename))
+	targetPath := filepath.Join(helpers.BasePath, bucket, path, filepath.Base(fileName))
 
 	baseDir := filepath.Clean(helpers.BasePath) + string(os.PathSeparator)
 	targetDir := filepath.Clean(targetPath)

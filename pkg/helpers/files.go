@@ -45,8 +45,8 @@ func GetZipFiles(dirPath string) (*bytes.Buffer, error) {
 	return buffer, nil
 }
 
-func GetSingleFile(dirPath, filename string) (string, error) {
-	filePath := filepath.Join(dirPath, filename)
+func GetSingleFile(dirPath, fileName string) (string, error) {
+	filePath := filepath.Join(dirPath, fileName)
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
 		return "", errors.New("file not found")
 	}
