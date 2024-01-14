@@ -13,6 +13,7 @@ func main() {
 
 	engine.GET("/file", files.GetFileHandler)
 	engine.POST("/file", files.UploadFileHandler)
+	engine.DELETE("/file", files.DeleteFileHandler)
 
 	engine.GET("/folder", folders.GetFolderHandler)
 	engine.GET("/folderInfo", folders.GetFolderInfoHandler)

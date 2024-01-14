@@ -52,3 +52,13 @@ func GetSingleFile(dirPath, filename string) (string, error) {
 	}
 	return filePath, nil
 }
+
+func DeleteFile(dirPath, fileName string) error {
+	filePath := filepath.Join(dirPath, fileName)
+
+	if err := os.Remove(filePath); err != nil {
+		return err
+	}
+
+	return nil
+}

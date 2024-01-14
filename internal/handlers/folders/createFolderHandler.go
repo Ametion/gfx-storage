@@ -33,6 +33,20 @@ func CreateFolderHandler(c *gin.Context) {
 
 	newFolderPath := filepath.Join(helpers.BasePath, body.Bucket, body.Folder)
 
+	if _, err := os.Stat(newFolderPath); err == nil {
+		c.JSON(400, response.Response{
+			Message: "Folder already exists",
+			Code:    400,
+		})
+		return
+	} else if !os.IsNotExist(err) {
+		c.JSON(500, response.Response{
+			Message: "Error checking folder existence",
+			Code:    500,
+		})
+		return
+	}
+
 	err := os.MkdirAll(newFolderPath, os.ModePerm)
 	if err != nil {
 		c.JSON(500, response.Response{
