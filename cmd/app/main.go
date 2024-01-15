@@ -23,6 +23,7 @@ func main() {
 	engine.GET("/bucket/:bucket", buckets.GetBucketHandler)
 	engine.GET("/buckets", buckets.GetBucketsHandler)
 	engine.POST("/bucket", buckets.CreateBucketHandler)
+	engine.DELETE("/bucket/:bucket", buckets.DeleteBucketHandler)
 
 	runErr := engine.Run(":5783")
 	if runErr != nil {
